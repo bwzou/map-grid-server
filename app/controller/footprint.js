@@ -8,12 +8,13 @@
 module.exports = app => {
     return class FootprintController extends app.Controller {
         async where() {
-            this.ctx.body = await service.footprint.findWhere();
+            
+            this.ctx.body = await this.service.footprint.findWhere();
         }
 
         async user() {
             const data = this.ctx.request.body;
-            this.ctx.body = await service.footprint.findUser(data);
+            this.ctx.body = await this.service.footprint.findUser(data);
         }
     }
 };
